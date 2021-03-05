@@ -20,22 +20,29 @@ set incsearch
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
-call plug#begin('~/.vim/plugged')
+nnoremap <Space> <NOP>
+let mapleader = " "
+let maplocalleader = " "
+let g:camelcasemotion_key = '<leader>'
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#begin('~/.vim/plugged')
+Plug 'bkad/CamelCaseMotion'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'tpope/vim-surround'
+
+if exists('g:vscode')
+    call plug#end()
+    finish
+endif
+
 " Plug 'tweekmonster/gofmt.vim'
 " Plug 'tpope/vim-fugitive'
 " Plug 'vim-utils/vim-man'
-" Plug 'mbbill/undotree'
 " Plug 'sheerun/vim-polyglot'
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim'
 " Plug 'vuciv/vim-bujo'
 " Plug 'tpope/vim-dispatch'
-" Plug 'https://github.com/cheery/idris-vim.git'
-" Plug 'https://github.com/idris-hackers/idris-vim.git'
-" Plug 'https://github.com/edwinb/idris-vim.git'
-" Plug 'https://github.com/idris-hackers/idris-vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'phanviet/vim-monokai-pro'
@@ -43,12 +50,8 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'vim-airline/vim-airline'
 Plug 'flazz/vim-colorschemes'
 Plug 'preservim/nerdtree'
-Plug 'bkad/CamelCaseMotion'
-Plug 'vim-scripts/argtextobj.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'jacquesbh/vim-showmarks'
-
 call plug#end()
 
 colorscheme codedark
@@ -58,8 +61,6 @@ set background=dark
 set termguicolors
 set mouse=a
 
-nnoremap <Space> <NOP>
-
 " autocmd vimenter * NERDTree
 autocmd vimenter * if !argc()|NERDTree|endif
 map <F3> :NERDTreeMirror<CR>
@@ -67,12 +68,6 @@ map <F3> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
-let mapleader = " "
-let maplocalleader = " "
-
-let g:camelcasemotion_key = '<leader>'
-
 
 " ============
 " COC SETTINGS
