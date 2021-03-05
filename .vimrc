@@ -53,6 +53,7 @@ Plug 'preservim/nerdtree'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cocopon/iceberg.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 colorscheme gruvbox
@@ -67,6 +68,8 @@ autocmd vimenter * if !argc()|NERDTree|endif
 map <F3> :NERDTreeMirror<CR>
 map <F3> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+
+let g:ctrlp_working_path_mode = 'ra'
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
