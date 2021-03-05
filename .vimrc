@@ -52,10 +52,11 @@ Plug 'flazz/vim-colorschemes'
 Plug 'preservim/nerdtree'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'cocopon/iceberg.vim'
 call plug#end()
 
-colorscheme codedark
-let g:airline_theme = 'codedark'
+colorscheme gruvbox
+" let g:airline_theme = 'codedark'
 
 set background=dark
 set termguicolors
