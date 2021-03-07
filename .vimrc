@@ -20,6 +20,7 @@ set incsearch
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
+nnoremap <silent> g/ :noh<CR>
 nnoremap <Space> <NOP>
 let mapleader = " "
 let maplocalleader = " "
