@@ -75,7 +75,7 @@ let g:fzf_action = {
 let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_preview_window = 'right:60%'
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-nnoremap <c-p> :Files<cr>
+nnoremap <expr> <c-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
