@@ -76,7 +76,7 @@ let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_preview_window = 'right:60%'
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 if has("win32")
-    nnoremap <expr> <c-p> :FZF<cr>
+    nnoremap <c-p> :FZF<cr>
 else
     nnoremap <expr> <c-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles')."\<cr>"
 endif
