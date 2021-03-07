@@ -40,10 +40,10 @@ endif
 " Plug 'tpope/vim-fugitive'
 " Plug 'vim-utils/vim-man'
 " Plug 'sheerun/vim-polyglot'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
 " Plug 'vuciv/vim-bujo'
 " Plug 'tpope/vim-dispatch'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'phanviet/vim-monokai-pro'
@@ -54,7 +54,6 @@ Plug 'preservim/nerdtree'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cocopon/iceberg.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 colorscheme gruvbox
@@ -64,13 +63,19 @@ set background=dark
 set termguicolors
 set mouse=a
 
-" autocmd vimenter * NERDTree
-autocmd vimenter * if !argc()|NERDTree|endif
 map <F3> :NERDTreeMirror<CR>
 map <F3> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
-let g:ctrlp_working_path_mode = 'ra'
+let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
+let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_preview_window = 'right:60%'
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+nnoremap <c-p> :Files<cr>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
